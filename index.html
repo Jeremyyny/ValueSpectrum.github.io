@@ -159,7 +159,7 @@
                 <a href="https://jeremyny.github.io/" target="_blank">Yuning Yang</a>*
                 <a href="mailto:yuningyangai@gmail.com"><i class="fas fa-envelope"></i></a>,</span>
               <span class="author-block">
-                Shengqi Yang*,</span> <!-- No link -->
+                Shengqi Yang,</span> <!-- No link -->
               <span class="author-block">
                 Linfan,</span> <!-- No link -->
               <span class="author-block">
@@ -171,7 +171,8 @@
 
             <div class="is-size-5 publication-authors">
               <span class="author-block">University of California, Los Angeles (UCLA)</span><br> <!-- Assuming UCLA from previous context -->
-              <span class="paper-block"><b>* Equal Contribution, Alph</b></span>
+              <span class="paper-block"><b>*Equal contribution, alphabetical by first name
+</b></span>
             </div>
 
 
@@ -285,32 +286,32 @@
     </div>
   </section>
 
-
-  <section class="hero teaser">
+  <section class="section" id="introduction">
     <div class="container is-max-desktop">
       <div class="content has-text-centered">
-        <img src="assets/models/framework_overall.png" width="100%">
+        <!-- Make sure 'assets/models/value_pipeline.png' visually represents the Value-Spectrum concept or the values -->
+        <img src="assets/models/value_pipeline.png" width="100%" alt="Value-Spectrum Framework Overview">
         <p style="text-align: left;">
-          The overall framework of <span style="color: var(--color-octo-red);"><b>Octo</b></span><span
-            style="color: var(--color-tools-blue);"><b>Tools</b></span>.
-          (1) <b style="color: var(--color-tool-cards-orange)">Tool cards</b> define tool-usage metadata and encapsulate
-          heterogeneous tools, enabling training-free integration of new tools without additional training or framework
-          refinement.
-          (2) The <b style="color: var(--color-planner-red)">planner</b> governs both high-level and low-level planning
-          to address the global objective and refine actions step by step.
-          (3) The <b style="color: var(--color-executor-blue)">executor</b> instantiates tool calls by generating
-          executable commands and save structured results in the context. The final answer is summarized from the full
-          trajectory in the context.
-          Furthermore, the <b style="color: var(--color-tool-cards-orange)">task-specific toolset optimization</b>
-          algorithm learns a beneficial subset of tools for downstream tasks.
+          We introduce <b>Value-Spectrum</b>, a benchmark designed to systematically evaluate preference traits in Vision-Language Models (VLMs) through visual content from social media, based on Schwartz’s core human values:
+          <ul style="list-style-type: none; padding-left: 0; margin-top: 0.5em;">
+            <li>🤝 <b>Benevolence</b> — caring for and helping others</li>
+            <li>🌍 <b>Universalism</b> — understanding, appreciation, and protection of all people and nature</li>
+            <li>🧭 <b>Self-Direction</b> — independent thought and action</li>
+            <li>🏆 <b>Achievement</b> — personal success through demonstrating competence</li>
+            <li>🎢 <b>Stimulation</b> — excitement, novelty, and challenge in life</li>
+            <li>🍰 <b>Hedonism</b> — pleasure and sensuous gratification</li>
+            <li>🛡️ <b>Security</b> — safety, harmony, and stability of society and relationships</li>
+            <li>📏 <b>Conformity</b> — restraint of actions that might upset others or violate social norms</li>
+            <li>🧧 <b>Tradition</b> — respect, commitment, and acceptance of cultural or religious customs</li>
+            <li>👑 <b>Power</b> — social status, prestige, and control over people and resources</li>
+          </ul>
         </p>
       </div>
-      <div class="content has-text-centered">
-        <img src="assets/models/framework_example.png" width="100%">
+      <div class="content has-text-centered" style="margin-top: 2rem;"> <!-- Added some margin-top for better spacing -->
+        <!-- Make sure 'assets/models/agent_pipeline.png' visually represents the data collection or agent interaction -->
+        <img src="assets/models/agent_pipeline.png" width="100%" alt="Value-Spectrum Data Collection Pipeline">
         <p style="text-align: left;">
-          The demonstration of the self-contained example.
-          We visualize the <b>tool cards</b> for selected tools, the initial plan, and two steps in which the
-          <b>planner</b> and the <b>executor</b> orchestrate low-level planing and tool usage.
+          <b>Value-Spectrum</b> utilizes VLM agents embedded within social media platforms (e.g., TikTok, YouTube, etc.) to collect a dataset of 50,191 unique short video screenshots. These screenshots span a wide range of topics, including lifestyle, technology, health, and more.
         </p>
       </div>
     </div>
@@ -324,15 +325,14 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3 video-title">YouTube Video</h2>
         <div class="publication-video video-container">
-          <iframe src="https://www.youtube.com/watch?v=IHaVexkSuEE" 
+          <iframe src="https://www.youtube.com/embed/IHaVexkSuEE"  <!-- Corrected src -->
                   frameborder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowfullscreen>
           </iframe>
         </div>
         <p class="has-text-centered mt-4">
-          Power by Notebook LLM </a> for generating this podcast <span style="color: var(--color-octo-red);"><b>Octo</b></span><span
-          style="color: var(--color-tools-blue);"><b>Tools</b></span>!
+          Powered by <a href="https://notebooklm.google/" target="_blank">NotebookLLM</a> for generating this podcast! <!-- Corrected link -->
         </p>
       </div>
     </div>
@@ -341,7 +341,7 @@
 
   <!-- Introduction -->
   <section class="section" id="introduction">
-    <div class="container" style="margin-bottom: 2vh;">
+    <!-- <div class="container" style="margin-bottom: 2vh;">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
           <h2 class="title is-3">Introduction</h2>
@@ -390,7 +390,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
   <!--/ Introduction -->
 
 
