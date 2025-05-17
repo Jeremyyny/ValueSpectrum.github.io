@@ -3,6 +3,14 @@ body {
 }
 
 :root {
+  --color-s: #FF5733; /* Replace with your desired color for S */
+  --color-p: #FFC300; /* Replace with your desired color for P */
+  --color-e: #DAF7A6; /* Replace with your desired color for E */
+  --color-c: #33C7FF; /* Replace with your desired color for C */
+  --color-t: #8E44AD; /* Replace with your desired color for T */
+  --color-r: #2ECC71; /* Replace with your desired color for R */
+  --color-u: #F39C12; /* Replace with your desired color for U */
+  --color-m: #E74C3C; /* Replace with your desired color for M */
   --color-octo-red: #da2851;
   --color-tools-blue: #246cae;
   --color-tool-cards-orange: #e89a1e;
