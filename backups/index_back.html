@@ -3,12 +3,12 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="Value-Spectrum: Quantifying Preferences of Vision-Language Models via Value Decomposition in Social Media Contexts">
-  <meta name="keywords" content="Value-Spectrum, VLM Agents, Benchmark, VLMs, Social Media">
+  <meta name="description" content="OctoTools: An Agentic Framework with Extensible Tools for Complex Reasoning">
+  <meta name="keywords" content="OctoTools, LLM Agents, Complex Reasoning, LLMs, Tools">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> Value-Spectrum: Quantifying Preferences of Vision-Language Models via Value Decomposition in Social Media Contexts</title>
+  <title> OctoTools: An Agentic Framework with Extensible Tools for Complex Reasoning</title>
 
-  <link rel="icon" href="./assets/logos/valuespectrum.png">
+  <link rel="icon" href="./assets/logos/octotools.svg">
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
@@ -23,8 +23,7 @@
   <link rel="stylesheet" href="./static/css/tool_cards.css">
   <link rel="stylesheet" href="./static/css/top_button.css">
   <link rel="stylesheet" href="./static/css/navbar.css">
-  <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="stylesheet" href="./static/css/video.css">
+
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
@@ -32,22 +31,27 @@
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/explorer-index.js"></script>
 
-  <!-- Add navbar.js script -->
-  <script src="./static/js/navbar.js"></script>
+  <!-- for latex rendering -->
+  <link rel="stylesheet" href="./static/css/index.css">
 
   <!-- Add MathJax -->
-  <script src="./static/js/mathjax.js"></script>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      }
+    };
+  </script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
-  <!-- Add visualization.js script -->
-  <script src="./static/js/visualization.js"></script>
 
 </head>
 
 
 <body>
 
-  <!-- <nav class="navbar" role="navigation" aria-label="main navigation">
+  <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
         <span aria-hidden="true"></span>
@@ -77,12 +81,12 @@
             More Research
           </a>
           <div class="navbar-dropdown">
-            <a class="navbar-item" href="https://chameleon-llm.github.io/" target="_blank">
-              <b>Chameleon</b>
-              <p style="font-size:18px; display: inline; margin-left: 5px;">🔥</p>
-            </a>
             <a class="navbar-item" href="https://textgrad.com/" target="_blank">
               <b>TextGrad</b>
+              <p style="font-size:18px; display: inline; margin-left: 5px;">🔥</p>
+            </a>
+            <a class="navbar-item" href="https://chameleon-llm.github.io/" target="_blank">
+              <b>Chameleon</b>
               <p style="font-size:18px; display: inline; margin-left: 5px;">🔥</p>
             </a>
             <a class="navbar-item" href="https://mathvista.github.io/" target="_blank">
@@ -106,18 +110,14 @@
       </div>
 
     </div>
-  </nav> -->
+  </nav>
 
   <!-- Add Table of Contents -->
   <div class="toc-wrapper">
-    <h4 style="margin-bottom: 10px;">
-      <a href="#">Table of Contents</a>
-    </h4>
+    <h4 style="margin-bottom: 10px;">Table of Contents</h4>
     <ul class="toc-list">
       <li><a href="#introduction">Introduction</a></li>
-      <li><a href="#video">YouTube Video</a></li>
-      <li><a href="#dataset">Tool Cards</a></li>
-      <li><a href="#visualization">Visualization</a></li>
+      <li><a href="#tool-cards">Tool Cards</a></li>
       <li>
         <a href="#framework">Framework</a>
         <!-- <div class="toc-subitem">
@@ -131,7 +131,7 @@
           <a href="#ablation-study">Ablation Study</a>
         </div> -->
       </li>
-      <li><a href="#Share">Share</a></li>
+      <li><a href="#visualization">Visualization</a></li>
       <li><a href="#BibTeX">BibTeX</a></li>
     </ul>
   </div>
@@ -142,7 +142,7 @@
         <div class="columns is-centered">
           <div class="column has-text-centered">
             <h1 class="title is-1 publication-title is-bold">
-              <img src="assets/logos/valuespectrum.png" style="width:1em;vertical-align: middle" alt="Logo">
+              <img src="assets/logos/octotools.svg" style="width:1em;vertical-align: middle" alt="Logo">
               <span style="vertical-align: middle">
                 <span style="color: var(--color-octo-red);">Octo</span><span
                   style="color: var(--color-tools-blue);">Tools</span>
@@ -151,45 +151,43 @@
             <h2 class="subtitle is-3 publication-subtitle">
               An Agentic Framework with Extensible Tools for <br>Complex Reasoning
             </h2>
-                        <div class="is-size-5 publication-authors">
+            <div class="is-size-5 publication-authors">
               <span class="author-block">
-                Jingxuan Li* <!-- No link -->
-              </span>
+                <a href="https://lupantech.github.io/" target="_blank">Pan Lu</a>*
+                <a href="mailto:lupantech@gmail.com"><i class="fas fa-envelope"></i></a>,</span>
               <span class="author-block">
-                <a href="https://jeremyny.github.io/" target="_blank">Yuning Yang</a>*
-                <a href="mailto:yuningyangai@gmail.com"><i class="fas fa-envelope"></i></a>,</span>
+                <a href="https://bowen118.github.io/" target="_blank">Bowen Chen</a>*,</span>
               <span class="author-block">
-                Shengqi Yang*,</span> <!-- No link -->
+                <a href="https://shengliu66.github.io/" target="_blank">Sheng Liu</a>*,</span>
               <span class="author-block">
-                Linfan,</span> <!-- No link -->
+                <a href="https://rthapa84.github.io/" target="_blank">Rahul Thapa</a>,</span>
               <span class="author-block">
-                Joseph Boen,</span> <!-- No link, unless the Stanford directory is preferred -->
+                <a href="https://dbds.stanford.edu/people/joseph-boen/" target="_blank">Joseph Boen</a>,</span>
               <span class="author-block">
-                <a href="http://www.stat.ucla.edu/~ywu/" target="_blank">Ying Nian Wu</a>
-              </span>
+                <a href="https://www.james-zou.com/" target="_blank">James Zou</a>
+                <a href="mailto:jamesz@stanford.edu"><i class="fas fa-envelope"></i></a></span>
             </div>
 
             <div class="is-size-5 publication-authors">
-              <span class="author-block">University of California, Los Angeles (UCLA)</span><br> <!-- Assuming UCLA from previous context -->
-              <span class="paper-block"><b>* Equal Contribution, Alph</b></span>
+              <span class="author-block">Stanford University</span><br>
+              <span class="paper-block"><b>* Equal Contribution</b></span>
             </div>
-
 
             <div class="column has-text-centered">
               <div class="publication-links">
                 <!-- PDF Link. -->
-                <!-- <span class="link-block">
-                  <a href="https://arxiv.org/pdf/2502.11271.pdf"
+                <span class="link-block">
+                  <a href="https://arxiv.org/pdf/2502.xxxxx.pdf"
                     class="external-link button is-normal is-rounded is-dark" target="_blank">
                     <span class="icon">
                       <i class="fas fa-file-pdf"></i>
                     </span>
                     <span>Paper</span>
                   </a>
-                </span> -->
+                </span>
                 <!-- arxiv link -->
                 <span class="link-block">
-                  <a href="https://arxiv.org/abs/2502.11271" class="external-link button is-normal is-rounded is-dark" target="_blank">
+                  <a href="https://arxiv.org/abs/2502.xxxxx" class="external-link button is-normal is-rounded is-dark" target="_blank">
                     <span class="icon">
                       <i class="ai ai-arxiv"></i>
                     </span>
@@ -206,19 +204,9 @@
                     <span>Code</span>
                   </a>
                 </span>
-                <!-- PyPI Link. -->
-                <span class="link-block">
-                  <a href="https://pypi.org/project/octotoolkit/"
-                    class="external-link button is-normal is-rounded is-dark" target="_blank">
-                    <span class="icon">
-                      <p style="font-size:18px">📦</p>
-                    </span>
-                    <span>PyPI</span>
-                  </a>
-                </span>    
                 <!-- Demo Link. -->
                 <span class="link-block">
-                  <a href="https://huggingface.co/spaces/OctoTools/octotools"
+                  <a href="https://huggingface.co/spaces/octotools"
                     class="external-link button is-normal is-rounded is-dark" target="_blank">
                     <span class="icon">
                       <p style="font-size:18px">🤗</p>
@@ -236,19 +224,9 @@
                     <span>Visualize</span>
                   </a>
                 </span>
-                <!-- YouTube Link. -->
-                <span class="link-block">
-                  <a href="https://www.youtube.com/watch?v=4828sGfx7dk&ab_channel=DiscoverAI"
-                    class="external-link button is-normal is-rounded is-dark" target="_blank">
-                    <span class="icon">
-                      <p style="font-size:18px">📺</p>
-                    </span>
-                    <span>YouTube</span>
-                  </a>
-                </span>            
                 <!-- Twitter Link. -->
                 <span class="link-block">
-                  <a href="https://x.com/lupantech/status/1892260474320015861"
+                  <a href="https://twitter.com/lupantech/status/xxxx"
                     class="external-link button is-normal is-rounded is-dark" target="_blank">
                     <span class="icon">
                       <p style="font-size:18px">🌐</p>
@@ -256,29 +234,8 @@
                     <span>Twitter</span>
                   </a>
                 </span>
-                <!-- Discord Link. -->
-                <!-- <span class="link-block">
-                  <a href="https://discord.gg/kgUXdZHgNG"
-                    class="external-link button is-normal is-rounded is-dark" target="_blank">
-                    <span class="icon">
-                      <p style="font-size:18px">💬</p>
-                    </span>
-                    <span>Discord</span>
-                  </a>
-                </span> -->
-                <!-- Slack Link. -->
-                <span class="link-block">
-                  <a href="https://join.slack.com/t/octotools/shared_invite/zt-3485ikfas-zMTbFbuodJmET~R6KXHEGw"
-                    class="external-link button is-normal is-rounded is-dark" target="_blank">
-                    <span class="icon">
-                      <p style="font-size:18px">💬</p>
-                    </span>
-                    <span>Slack</span>
-                  </a>
-                </span>
               </div>
             </div>
-
           </div>
         </div>
       </div>
@@ -316,28 +273,6 @@
     </div>
   </section>
 
-
-<!-- YouTube Video -->
-<section class="section video-section" id="video">
-  <div class="container">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3 video-title">YouTube Video</h2>
-        <div class="publication-video video-container">
-          <iframe src="https://www.youtube.com/embed/4828sGfx7dk" 
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen>
-          </iframe>
-        </div>
-        <p class="has-text-centered mt-4">
-          Thanks to <a href="https://www.youtube.com/@code4AI" target="_blank">Discover AI</a> for featuring <span style="color: var(--color-octo-red);"><b>Octo</b></span><span
-          style="color: var(--color-tools-blue);"><b>Tools</b></span>!
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
 
   <!-- Introduction -->
   <section class="section" id="introduction">
@@ -420,394 +355,23 @@
                 .catch(error => console.error('Error loading tool cards:', error));
             </script> -->
 
-            <div class="columns is-multiline">
+              <!-- Replace all tool cards with this div and script -->
+  <div id="tool-cards-container"></div>
 
-              <!-- Tool Card: Generalist Solutioner -->
-              <div class="column is-one-third">
-                <div class="card tool-card">
-                  <div class="card-content">
-                    <div class="content">
-                      <p class="title is-4">
-                        <span class="tool-emoji" style="font-size: 24px;">🧙</span> 
-                        <a href="tools/generalist_solution_generator/tool.html" class="tool-name" target="_blank">Generalist Solutioner</a>
-                      </p>
-                      <p class="tool-description">
-                        Base tool that answers general questi-ons without using any external tools.
-                      </p>
-                    </div>
-                  </div>
-                  <footer class="card-footer">
-                    <a href="tools/generalist_solution_generator/tool.html#metadata" class="card-footer-item" target="_blank">Metadata</a>
-                    <a href="https://github.com/zou-group/toolbox-agent/blob/main/opentools/tools/generalist_solution_generator/tool.py" class="card-footer-item" target="_blank">Code</a>
-                    <a href="tools/generalist_solution_generator/tool.html#example" class="card-footer-item" target="_blank">Example</a>
-                  </footer>
-                </div>
-              </div>
-            
-              <!-- Tool Card: Image Captioner -->
-              <div class="column is-one-third">
-                <div class="card tool-card">
-                  <div class="card-content">
-                    <div class="content">
-                      <p class="title is-4">
-                        <span class="tool-emoji" style="font-size: 24px;">📸</span>
-                        <a href="tools/image_captioner/tool.html" class="tool-name" target="_blank">Image Captioner</a>
-                      </p>
-                      <p class="tool-description">
-                        <!-- Generate captions for images using OpenAI's multimodal model. -->
-                        Generate a caption for a given image with a text prompt.
-                      </p>
-                    </div>
-                  </div>
-                  <footer class="card-footer">
-                    <a href="tools/image_captioner/tool.html#metadata" class="card-footer-item" target="_blank">Metadata</a>
-                    <a href="https://github.com/zou-group/toolbox-agent/blob/main/opentools/tools/image_captioner/tool.py" class="card-footer-item" target="_blank">Code</a>
-                    <a href="tools/image_captioner/tool.html#example" class="card-footer-item" target="_blank">Example</a>
-                  </footer>
-                </div>
-              </div>
-            
-              <!-- Tool Card: Relevant Patch Zoomer -->
-              <div class="column is-one-third">
-                <div class="card tool-card">
-                  <div class="card-content">
-                    <div class="content">
-                      <p class="title is-4">
-                        <span class="tool-emoji" style="font-size: 24px;">🔍</span>
-                        <a href="tools/relevant_patch_zoomer/tool.html" class="tool-name" target="_blank">Relevant Patch Zoomer</a>
-                      </p>
-                      <p class="tool-description">
-                        <!-- tool that analyzes an image, divides it into 5 regions (4 quarters + center), and identifies the most relevant patches based on a question. The returned patches are zoomed in by a factor of 2. -->
-                         Locate and zoom in relevant quarter patches in an image given a question.
-                      </p>
-                    </div>
-                  </div>
-                  <footer class="card-footer">
-                    <a href="tools/relevant_patch_zoomer/tool.html#metadata" class="card-footer-item" target="_blank">Metadata</a>
-                    <a href="https://github.com/zou-group/toolbox-agent/blob/main/opentools/tools/relevant_patch_zoomer/tool.py" class="card-footer-item" target="_blank">Code</a>
-                    <a href="tools/relevant_patch_zoomer/tool.html#example" class="card-footer-item" target="_blank">Example</a>
-                  </footer>
-                </div>
-              </div>
-            
-              <!-- Tool Card: Text Detector -->
-              <div class="column is-one-third">
-                <div class="card tool-card">
-                  <div class="card-content">
-                    <div class="content">
-                      <p class="title is-4">
-                        <span class="tool-emoji" style="font-size: 24px;">📝</span>
-                        <a href="tools/text_detector/tool.html" class="tool-name" target="_blank">Text Detector</a>
-                      </p>
-                      <p class="tool-description">
-                        <!-- detects text in an image using EasyOCR. -->
-                         Detect text with coordinates and confi-dence scores in an image by EasyOCR.
-                      </p>
-                    </div>
-                  </div>
-                  <footer class="card-footer">
-                    <a href="tools/text_detector/tool.html#metadata" class="card-footer-item" target="_blank">Metadata</a>
-                    <a href="https://github.com/zou-group/toolbox-agent/blob/main/opentools/tools/text_detector/tool.py" class="card-footer-item" target="_blank">Code</a>
-                    <a href="tools/text_detector/tool.html#example" class="card-footer-item" target="_blank">Example</a>
-                  </footer>
-                </div>
-              </div>
-
-              <!-- Tool Card: Object Detector -->
-              <div class="column is-one-third">
-                <div class="card tool-card">
-                  <div class="card-content">
-                    <div class="content">
-                      <p class="title is-4">
-                        <span class="tool-emoji" style="font-size: 24px;">👁️</span>
-                        <a href="tools/object_detector/tool.html" class="tool-name" target="_blank">Object Detector</a>
-                      </p>
-                      <p class="tool-description">
-                        <!-- detects objects in an image using the Grounding DINO model and saves individual object images with empty padding -->
-                        Detect objects in an image using the Grounding DINO model.
-                      </p>
-                    </div>
-                  </div>
-                  <footer class="card-footer">
-                    <a href="tools/object_detector/tool.html#metadata" class="card-footer-item" target="_blank">Metadata</a>
-                    <a href="https://github.com/zou-group/toolbox-agent/blob/main/opentools/tools/object_detector/tool.py" class="card-footer-item" target="_blank">Code</a>
-                    <a href="tools/object_detector/tool.html#example" class="card-footer-item" target="_blank">Example</a>
-                  </footer>
-                </div>
-              </div>
-
-              <!-- Tool Card: Wikipedia Searcher -->
-              <div class="column is-one-third">
-                <div class="card tool-card">
-                  <div class="card-content">
-                    <div class="content">
-                      <p class="title is-4">
-                        <span class="tool-emoji" style="font-size: 24px;">📚</span>
-                        <a href="tools/wikipedia_knowledge_searcher/tool.html" class="tool-name" target="_blank">Wikipedia Search</a>
-                      </p>
-                      <p class="tool-description">
-                        <!-- searches Wikipedia and returns web text based on a given query -->
-                        Search Wikipedia for relevant informa-tion based on a given query.
-                      </p>
-                    </div>
-                  </div>
-                  <footer class="card-footer">
-                    <a href="tools/wikipedia_knowledge_searcher/tool.html#metadata" class="card-footer-item" target="_blank">Metadata</a>
-                    <a href="https://github.com/zou-group/toolbox-agent/blob/main/opentools/tools/wikipedia_knowledge_searcher/tool.py" class="card-footer-item" target="_blank">Code</a>
-                    <a href="tools/wikipedia_knowledge_searcher/tool.html#example" class="card-footer-item" target="_blank">Example</a>
-                  </footer>
-                </div>
-              </div>
-            
-              <!-- Tool Card: Google Searcher -->
-              <div class="column is-one-third">
-                <div class="card tool-card">
-                  <div class="card-content">
-                    <div class="content">
-                      <p class="title is-4">
-                        <span class="tool-emoji" style="font-size: 24px;">🌐</span>
-                        <a href="tools/google_search/tool.html" class="tool-name" target="_blank">Google Search</a>
-                      </p>
-                      <p class="tool-description">
-                        <!-- performs Google searches based on a given text query -->
-                        Search the Google website for relevant information based on a given query.
-                      </p>
-                    </div>
-                  </div>
-                  <footer class="card-footer">
-                    <a href="tools/google_search/tool.html#metadata" class="card-footer-item" target="_blank">Metadata</a>
-                    <a href="https://github.com/zou-group/toolbox-agent/blob/main/opentools/tools/google_search/tool.py" class="card-footer-item" target="_blank">Code</a>
-                    <a href="tools/google_search/tool.html#example" class="card-footer-item" target="_blank">Example</a>
-                  </footer>
-                </div>
-              </div>
-          
-              <!-- Tool Card: URL Extractor -->
-              <div class="column is-one-third">
-                <div class="card tool-card">  
-                  <div class="card-content">
-                    <div class="content">
-                      <p class="title is-4">
-                        <span class="tool-emoji" style="font-size: 24px;">🔗</span>
-                        <a href="tools/url_text_extractor/tool.html" class="tool-name" target="_blank">URL Extractor</a>
-                      </p>
-                      <p class="tool-description">
-                        <!-- extracts all text from a given URL -->
-                        Visit the given URL and extract all text from that page.
-                      </p>
-                    </div>
-                  </div>
-                  <footer class="card-footer">
-                    <a href="tools/url_text_extractor/tool.html#metadata" class="card-footer-item" target="_blank">Metadata</a>
-                    <a href="https://github.com/zou-group/toolbox-agent/blob/main/opentools/tools/url_text_extractor/tool.py" class="card-footer-item" target="_blank">Code</a>
-                    <a href="tools/url_text_extractor/tool.html#example" class="card-footer-item" target="_blank">Example</a>
-                  </footer>
-                </div>
-              </div>
-
-          
-              <!-- Tool Card: Python Interpreter -->
-              <div class="column is-one-third">
-                <div class="card tool-card">  
-                  <div class="card-content">
-                    <div class="content">
-                      <p class="title is-4">
-                        <span class="tool-emoji" style="font-size: 24px;">🧮</span>
-                        <a href="tools/python_code_generator/tool.html" class="tool-name" target="_blank">Python Interpreter</a>
-                      </p>
-                      <p class="tool-description">
-                        <!-- generates and executes simple Python code snippets for basic arithmetical calculations and math-related problems -->
-                        Generate and execute Python code snippets for basic calculations.
-                      </p>
-                    </div>
-                  </div>
-                  <footer class="card-footer">
-                    <a href="tools/python_code_generator/tool.html#metadata" class="card-footer-item" target="_blank">Metadata</a>
-                    <a href="https://github.com/zou-group/toolbox-agent/blob/main/opentools/tools/python_code_generator/tool.py" class="card-footer-item" target="_blank">Code</a>
-                    <a href="tools/python_code_generator/tool.html#example" class="card-footer-item" target="_blank">Example</a>
-                  </footer>
-                </div>
-              </div>
-
-
-              <!-- Tool Card: ArXiv Paper Search -->
-              <div class="column is-one-third">
-                <div class="card tool-card">
-                  <div class="card-content">
-                    <div class="content">
-                      <p class="title is-4">
-                        <span class="tool-emoji" style="font-size: 24px;">📄</span>
-                        <a href="tools/arxiv_paper_searcher/tool.html" class="tool-name" target="_blank">ArXiv Paper Search</a>
-                      </p>
-                      <p class="tool-description">
-                        <!-- Search arXiv for papers based on a given query. -->
-                        Search arXiv for the latest literature based on a given query.
-                      </p>
-                    </div>
-                  </div>
-                  <footer class="card-footer">  
-                    <a href="tools/arxiv_paper_searcher/tool.html#metadata" class="card-footer-item" target="_blank">Metadata</a>
-                    <a href="https://github.com/zou-group/toolbox-agent/blob/main/opentools/tools/arxiv_paper_searcher/tool.py" class="card-footer-item" target="_blank">Code</a>
-                    <a href="tools/arxiv_paper_searcher/tool.html#example" class="card-footer-item" target="_blank">Example</a>
-                  </footer>
-                </div>
-              </div>
-
-
-              <!-- Tool Card: PubMed Paper Search -->
-              <div class="column is-one-third">
-                <div class="card tool-card">
-                  <div class="card-content">
-                    <div class="content">
-                      <p class="title is-4">
-                        <span class="tool-emoji" style="font-size: 24px;">🏥</span>
-                        <a href="tools/pubmed_search/tool.html" class="tool-name" target="_blank">PubMed Paper Search</a>
-                      </p>
-                      <p class="tool-description">
-                        <!-- searches PubMed Central to retrieve relevant article abstracts based on a given list of text queries. Use this ONLY if you cannot use the other more specific ontology tools -->
-                        Search PubMed for the latest literature based on a given query.
-                      </p>
-                    </div>
-                  </div>
-                  <footer class="card-footer">
-                    <a href="tools/pubmed_search/tool.html#metadata" class="card-footer-item" target="_blank">Metadata</a>
-                    <a href="https://github.com/zou-group/toolbox-agent/blob/main/opentools/tools/pubmed_search/tool.py" class="card-footer-item" target="_blank">Code</a>
-                    <a href="tools/pubmed_search/tool.html#example" class="card-footer-item" target="_blank">Example</a>
-                  </footer>
-                </div>
-              </div>
-
-
-              <!-- Tool Card: Nature News Search -->
-              <div class="column is-one-third">
-                <div class="card tool-card">
-                  <div class="card-content">
-                    <div class="content">
-                      <p class="title is-4">
-                        <span class="tool-emoji" style="font-size: 24px;">🌿</span>
-                        <a href="tools/nature_news_fetcher/tool.html" class="tool-name" target="_blank">Nature News Search</a>
-                      </p>
-                      <p class="tool-description">
-                        <!-- fetches the latest news articles from Nature -->
-                        Search the latest news articles from the Nature website.
-                      </p>
-                    </div>
-                  </div>
-                  <footer class="card-footer">
-                    <a href="tools/nature_news_fetcher/tool.html#metadata" class="card-footer-item" target="_blank">Metadata</a>
-                    <a href="https://github.com/zou-group/toolbox-agent/blob/main/opentools/tools/nature_news_fetcher/tool.py" class="card-footer-item" target="_blank">Code</a>
-                    <a href="tools/nature_news_fetcher/tool.html#example" class="card-footer-item" target="_blank">Example</a>
-                  </footer>
-                </div>
-              </div>              
-
-
-              <!-- Tool Card: Pathology Classifier -->
-              <div class="column is-one-third">
-                <div class="card tool-card">
-                  <div class="card-content">
-                    <div class="content">
-                      <p class="title is-4">
-                        <span class="tool-emoji" style="font-size: 24px;">🔬</span>
-                        <a href="tools/path_generalist_classifier/tool.html" class="tool-name" target="_blank">Pathology Classifier</a>
-                      </p>
-                      <p class="tool-description">
-                        <!-- answering multiple choice questions about H&E microscopy images. -->
-                        Classify H&E-stained pathology images into one of the given options.
-                      </p>
-                    </div>
-                  </div>
-                  <footer class="card-footer">
-                    <a href="tools/path_generalist_classifier/tool.html#metadata" class="card-footer-item" target="_blank">Metadata</a>
-                    <a href="https://github.com/zou-group/toolbox-agent/blob/main/opentools/tools/path_generalist_classifier/tool.py" class="card-footer-item" target="_blank">Code</a>
-                    <a href="tools/path_generalist_classifier/tool.html#example" class="card-footer-item" target="_blank">Example</a>
-                  </footer>
-                </div>
-              </div>
-
-              <!-- Tool Card: More Tools -->
-              <div class="column is-one-third">
-                <div class="card tool-card">
-                  <div class="card-content">
-                    <div class="content">
-                      <p class="title is-4">
-                        <span class="tool-emoji" style="font-size: 24px;">⚒️</span>
-                         More Tools ...
-                      </p>
-                      <p class="tool-description">
-                        More tools can be added!
-                        <br><br>
-                      </p>
-                    </div>
-                  </div>
-                  <footer class="card-footer">
-                    <a class="card-footer-item">Metadata</a>
-                    <a class="card-footer-item" target="_blank">Code</a>
-                    <a class="card-footer-item">Example</a>
-                  </footer>
-                </div>
-              </div>
-
-
-            </div>
+  <script>
+    fetch('tool_cards.html')
+      .then(response => response.text())
+      .then(html => {
+        document.getElementById('tool-cards-container').innerHTML = html;
+      })
+      .catch(error => console.error('Error loading tool cards:', error));
+  </script>
 
           </div>
         </div>
       </div>
   </section>
   <!--/ Tool Cards -->
-
-<!-- Examples -->
-<section class="section" id="visualization">
-  <div class="container">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3" id="visualization">Visualization Examples</h2>
-        
-        <!-- Example Selection Buttons -->
-        <div class="buttons is-centered" style="margin-bottom: 2rem;">
-          <!-- First Row -->
-          <div class="buttons has-addons is-centered" style="width: 100%; margin-bottom: 0.5rem;">
-            <button class="button is-info is-outlined example-button" data-example="1">
-              Demonstration
-            </button>
-            <button class="button is-info is-outlined example-button" data-example="2">
-              Visual Reasoning
-            </button>
-            <button class="button is-info is-outlined example-button" data-example="3">
-              Multi-step Reasoning
-            </button>
-            <button class="button is-info is-outlined example-button" data-example="4">
-              Agentic Reasoning
-            </button>
-          </div>
-          
-          <!-- Second Row -->
-          <div class="buttons has-addons is-centered" style="width: 100%;">
-            <button class="button is-info is-outlined example-button" data-example="5">
-              Scientific Reasoning
-            </button>
-            <button class="button is-info is-outlined example-button" data-example="6">
-              Medical Reasoning
-            </button>
-            <button class="button is-info is-outlined example-button" data-example="7">
-              Pathology Diagnosis
-            </button>
-            <button class="button is-info is-outlined example-button" data-example="8">
-              Literature Review
-            </button>
-          </div>
-        </div>
-
-        <!-- Example Display Container -->
-        <div id="example-container" style="width: 100%; height: 900px; margin-bottom: 200px; border: none;">
-          <!-- The iframe will be inserted here by JavaScript -->
-        </div>
-
-      </div>
-    </div>
-  </div>
-</section>
 
   <!-- Framework -->
   <section class="section" id="framework">
@@ -835,7 +399,7 @@
               <b>tentative plan</b> from a high-level perspective, indicating how these tools can be used to address the
               query, which forms the initial <b>context</b> $s_0$. From this plan, the planner determines the initial
               <b>action</b> $a_1$ for tool usage, specifying which tool $d_1$ to use, the relevant context, and a
-              sub-goal. An <b>executor</b> (also powered by a language model) then converts the planner's text-based
+              sub-goal. An <b>executor</b> (also powered by a language model) then converts the planner’s text-based
               action $a_1$ into a machine-executable <b>command</b> $o_t$, which is run to obtain intermediate results
               $r_1$. These results, along with the original action, update the context to $s_1 := (a_1, o_1, r_1)$. This
               process constitutes one step in our framework.
@@ -1111,59 +675,64 @@
   </section>
   <!--/ Results -->
 
-  
-  <!-- Share Buttons -->
-  <section class="section" id="Share">
 
-  <div class="column has-text-centered">
-    <h2 class="title is-3 has-text-centered">Share <span style="color: var(--color-octo-red);"><b>Octo</b></span><span
-      style="color: var(--color-tools-blue);"><b>Tools</b></span></h2>
-    <!-- Social Media Share Buttons -->
-    <div class="social-share-buttons" style="margin-top: 20px;">
-      <!-- Twitter Share Button -->
-      <a href="https://twitter.com/intent/tweet?text=Introducing%20OctoTools:%20An%20Agentic%20Framework%20with%20Extensible%20Tools%20for%20Complex%20Reasoning%20https://octotools.github.io" 
-         class="button is-info is-outlined"
-         target="_blank">
-        <span class="icon">
-          <i class="fab fa-twitter"></i>
-        </span>
-        <span>Share on X (Twitter)</span>
-      </a>
-      
-      <!-- LinkedIn Share Button -->
-      <a href="https://www.linkedin.com/feed/?shareActive=true&shareUrl=https%3A%2F%2Foctotools.github.io" 
-         class="button is-info is-outlined"
-         style="margin-left: 10px;"
-         target="_blank">
-        <span class="icon">
-          <i class="fab fa-linkedin"></i>
-        </span>
-        <span>Share on LinkedIn</span>
-      </a>
-    </div>
-  </div>
+
+  <!-- Examples -->
+  <section class="section" id="visualization">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3" id="visualization" >Visualization Examples (TBD)</h2>
+          <div class="content has-text-justified">
+            <p>
+              Text.
+            </p>
+
+            <div id="results-carousel" class="carousel results-carousel">
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="assets/results/tool_usage_by_16_tasks_AutoGen.png" width="70%">
+                  <p> Distribution of tools usage. Frequency of tools used by the <b>AutoGen</b> agent for each
+                    benchmark.
+                  </p>
+                </div>
+              </div>
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="assets/results/tool_usage_by_16_tasks_LangChain.png" width="70%">
+                  <p> Distribution of tools usage. Frequency of tools used by the <b>GPT-Functions</b> agent for each
+                    benchmark.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
   </section>
-
+  <!--/ Tool Cards -->
+  
   <!-- BibTeX -->
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title is-3 has-text-centered">BibTeX</h2>
-      <pre><code>@inproceedings{Li2024ValueSpectrumQP,
-  title={Value-Spectrum: Quantifying Preferences of Vision-Language Models via Value Decomposition in Social Media Contexts},
-  author={Jingxuan Li and Yuning Yang and Shengqi Yang and Linfan Zhang and Ying Nian Wu},
-  booktitle={Annual Meeting of the Association for Computational Linguistics},
-  year={2025},
+      <pre><code>@article{lu2025octotools,
+    author = {Lu, Pan and Chen, Bowen and Liu, Sheng and Thapa, Rahul and Boen, Joseph and Zou, James},
+    title = {OctoTools: An Agentic Framework with Extensible Tools for Complex Reasoning},
+    journal = {arXiv preprint arXiv:2502.xxxxx},
+    year = {2025}
 }</code></pre>
     </div>
   </section>
 
   <section>
     <div class="section" id="org-banners" style="display:flex">
-      <a href="https://www.ucla.edu/" target="_blank" rel="external">
-        <img class="center-block org-banner" src="assets/logos/logo_UCLA_blue_boxed.png">
+      <a href="https://www.stanford.edu/" target="_blank" rel="external">
+        <img class="center-block org-banner" src="assets/logos/stanford.png">
       </a>
-      <!-- <a href="https://ai.stanford.edu/" target="_blank" rel="external">
-        <img class="center-block org-banner" src="assets/logos/ai_stanford.png"> -->
+      <a href="https://ai.stanford.edu/" target="_blank" rel="external">
+        <img class="center-block org-banner" src="assets/logos/ai_stanford.png">
       </a>
     </div>
   </section>
@@ -1178,8 +747,8 @@
       <div class="column is-8">
         <div class="content">
           <p>
-            This website is adapted from <a href="https://nerfies.github.io/">Nerfies</a> and <a
-              href="https://OctoTools.github.io/">OctoTools</a>, licensed under a <a rel="license"
+            This website is website adapted from <a href="https://nerfies.github.io/">Nerfies</a> and <a
+              href="https://mathvista.github.io/">MathVista</a>, licensed under a <a rel="license"
               href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
               Commons Attribution-ShareAlike 4.0 International License</a>.
           </p>
@@ -1191,11 +760,53 @@
 
 </body>
 
-  <!-- Back to top button -->
-  <button onclick="topFunction()" id="topButton" title="Go to top">
-    <i class="fas fa-arrow-up"></i>
+    <!-- Back to top button -->
+    <button onclick="topFunction()" id="topButton" title="Go to top">
+      <i class="fas fa-arrow-up"></i>
   </button>
 
+  <!-- JavaScript for the top button -->
+  <script>
+      let mybutton = document.getElementById("topButton");
+      
+      window.onscroll = function() {scrollFunction()};
+      
+      function scrollFunction() {
+          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+              mybutton.style.display = "block";
+          } else {
+              mybutton.style.display = "none";
+          }
+      }
+      
+      function topFunction() {
+          window.scrollTo({
+              top: 0,
+              behavior: 'smooth'
+          });
+      }
+  </script>
 
-  
+  <script>
+    // Add active state to TOC items based on scroll position
+    document.addEventListener('DOMContentLoaded', function() {
+      const tocLinks = document.querySelectorAll('.toc-list a');
+      
+      window.addEventListener('scroll', () => {
+        let current = '';
+        
+        document.querySelectorAll('section').forEach(section => {
+          const sectionTop = section.offsetTop;
+          if (window.pageYOffset >= sectionTop - 60) {
+            current = section.getAttribute('id');
+          }
+        });
+
+        tocLinks.forEach(link => {
+          link.style.fontWeight = link.getAttribute('href').slice(1) === current ? 'bold' : 'normal';
+        });
+      });
+    });
+  </script>
+
 </html>
