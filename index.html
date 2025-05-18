@@ -102,25 +102,29 @@
               Quantifying Preferences of Vision-Language Models via <br> Value Decomposition in Social Media Contexts
             </h2>
                         <div class="is-size-5 publication-authors">
-              <span class="author-block">
-                Jingxuan Li* <!-- No link -->
-              </span>
-              <span class="author-block">
-                <a href="https://jeremyyny.github.io/" target="_blank">Yuning Yang</a>*
-                <a href="mailto:yuningyangai@gmail.com"><i class="fas fa-envelope"></i></a>,</span>
-              <span class="author-block">
-                Shengqi Yang,</span> <!-- No link -->
-              <span class="author-block">
-                Linfan Zhang,</span> <!-- No link -->
-              <span class="author-block">
-                <a href="http://www.stat.ucla.edu/~ywu/" target="_blank">Ying Nian Wu</a>
-              </span>
-            </div>
+            <span class="author-block">
+                  Jingxuan Li*<sup>1</sup>
+                </span>
+                <span class="author-block">
+                  <a href="https://jeremyyny.github.io/" target="_blank">Yuning Yang</a>*<sup>1</sup>
+                  <a href="mailto:yuningyangai@gmail.com"><i class="fas fa-envelope"></i></a>,
+                </span>
+                <span class="author-block">
+                  Shengqi Yang<sup>2</sup>,
+                </span>
+                <span class="author-block">
+                  Linfan Zhang<sup>1</sup>,
+                </span>
+                <span class="author-block">
+                  <a href="http://www.stat.ucla.edu/~ywu/" target="_blank">Ying Nian Wu</a><sup>1</sup>
+                </span>
+              </div>
 
-            <div class="is-size-5 publication-authors">
-              <span class="author-block">University of California, Los Angeles (UCLA)</span><br> <!-- Assuming UCLA from previous context -->
-              <span class="paper-block"><b>*Equal contribution, alphabetical by first name
-</b></span>
+              <div class="is-size-5 publication-authors" style="margin-top: 0.5em;"> <!-- Affiliations block -->
+                <span class="author-block"><sup>1</sup>University of California, Los Angeles </span><br>
+                <span class="author-block"><sup>2</sup>Los Alamos National Laboratory</span><br>
+                <span class="paper-block" style="display: block; margin-top: 0.25em;"><b>*Equal contribution, alphabetical by first name</b></span>
+              </div>
             </div>
 
 
@@ -235,8 +239,11 @@
   </section>
 
 <section class="section" id="introduction">
-  <h2 class="title is-3" id="introduction">Introduction</h2>
-    <div class="container is-max-desktop">
+  <div class="container">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <!-- 1. Update the title -->
+        <h2 class="title is-3">Introduction</h2>
       <div class="content has-text-centered"> <!-- This div centers its block children if they aren't full width -->
         <img src="assets/models/value_pipeline.png" width="100%" alt="Value-Spectrum Framework Overview">
         <p style="text-align: left;"> <!-- Introductory text remains left-aligned -->
@@ -295,7 +302,7 @@
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <!-- 1. Update the title -->
-        <h2 class="title is-3">Our Social Media Video Dataset</h2>
+        <h2 class="title is-3">Value-Spectrum Dataset</h2>
 
         <!-- 2. Add a placeholder for your dataset image -->
         <!-- You'll need to replace 'path/to/your/dataset_image.jpg' with the actual path to your image -->
@@ -308,17 +315,12 @@
         <div class="content has-text-justified">
           <!-- 3. Add the new, concise dataset description -->
           <p>
-            Value-Spectrum is a novel dataset comprising <strong>50,191 video links</strong> sourced from Instagram, YouTube, and TikTok.
-            Collected autonomously using a VLM-driven GUI agent, each entry includes the video link, a representative screenshot, and platform metadata.
-            This rich collection, captured between July and October 2024, is structured in a vector database to facilitate research into VLM behavior, content preferences, and value decomposition across diverse social media landscapes.
-            Our dataset aims to empower deeper insights into model interpretation and the dynamics of online content.
-          </p>
-          <!-- Optional: You can add a link to where users can find more info or access the dataset -->
-          <!--
-          <p class="has-text-centered" style="margin-top: 1.5rem;">
-            <a href="#link-to-dataset-details-or-download" class="button is-primary is-medium">Learn More / Access Dataset</a>
-          </p>
-          -->
+  We introduce a novel dataset comprising <strong>50,191 single-frame images</strong>, each extracted from a short video sourced from Instagram, YouTube, and TikTok. These source videos span multiple months and cover diverse topics, including family, health, hobbies, society, technology, etc.
+  A key feature of this dataset is its annotation: each image is mapped to one or more of the <strong>10 core human values from Schwartz's theory</strong> via keyword matching.
+  In addition to the annotated image, each entry includes the <strong>original video link, relevant platform metadata</strong> (such as platform name and post date), <strong>and the VLM's preference indication (e.g., like or dislike) for the image.</strong>
+  This rich collection, captured between July and October 2024 through an VLM-driven GUI agent, is structured in a vector database to facilitate research into VLM behavior, content preferences, and value decomposition across diverse social media landscapes.
+  Our dataset aims to empower deeper insights into model interpretation and the dynamics of online content.   The full dataset, with its value annotations, is currently being prepared for public release on <a href="https://huggingface.co/datasets" target="_blank">Hugging Face</a> and will be available soon.
+</p>
         </div>
       </div>
     </div>
