@@ -318,12 +318,7 @@
         <h3 class="title is-4">Main Results: Comparison with Baselines</h3>
         <div class="content has-text-justified">
           <p>
-            To demonstrate the generality of our <span style="color: var(--color-octo-red);"><b>Octo</b></span><span
-              style="color: var(--color-tools-blue);"><b>Tools</b></span> framework, we conduct comprehensive
-            evaluations on <b>16 diverse benchmarks</b> spanning <b>two modalities</b>, <b>five domains</b>, and
-            <b>four reasoning types</b>. These benchmarks encompass a wide range of complex reasoning tasks, including
-            <b>visual understanding</b>, <b>numerical calculation</b>, <b>knowledge retrieval</b>, and <b>multi-step
-              reasoning</b>.
+To provide a comprehensive understanding of Vision-Language Model (VLM) value preferences within social media contexts, our analysis systematically examines their responses through the framework of Schwartz's 10 basic human values. Our investigation covers several key dimensions: we present comparative VLM preference scores (considering model characteristics like size and open-source status), discern average preference trends for each of the 10 values, detail individual VLM profiles alongside their preference consistency, and further explore VLM capabilities in value-driven role-playing as well as their preference alignment across diverse social media platforms.
           </p>
 
           <!-- Changed ID to be unique -->
@@ -331,28 +326,26 @@
             <div class="box m-5">
               <div class="content has-text-centered">
                 <img src="assets/results/table_result.png" width="90%" alt="Main results table">
-                <!-- <p> Caption. </p> -->
+                <p> 
+                  Comparison of Models’ Preference Scores Based on Schwartz’s 10 Values. Higher scores indicate stronger preferences. "Open-source" indicates whether the model is publicly available, and "Parameters" denotes
+the model’s size in billions (B). </p>
               </div>
             </div>
 
             <div class="box m-5">
               <div class="content has-text-centered">
-                <img src="assets/results/vlm_prefer_score.png" width="90%" alt="VLM preference score comparison">
+                <img src="assets/results/vlm_prefer_score.png" width="50%" alt="VLM preference score comparison">
                 <!-- Stylistic change to the caption's first sentence -->
                 <p>
-                  Performance comparison of our framework against other agents. Our framework consistently outperforms
-                  agent baselines across all benchmarks. Bar values represent accuracy and error bars represent
-                  standard deviation.
+                  Average Preferences Scores for 10 Schwartz values across VLMs. The length of each bar represents the mean score for a value, with higher scores indicating a higher overall preference across all VLMs.
                 </p>
               </div>
             </div>
 
             <div class="box m-5">
               <div class="content has-text-centered">
-                <img src="assets/results/vlm_spider.png" width="45%" alt="VLM performance gains spider chart">
-                <p> Performance gains across different benchmarks from our <span
-                    style="color: var(--color-octo-red);"><b>Octo</b></span><span
-                    style="color: var(--color-tools-blue);"><b>Tools</b></span> framework over the base GPT-4o model.
+                <img src="assets/results/vlm_spider.png" width="50%" alt="VLM performance gains spider chart">
+                <p> Each VLM’s preference scores towards the 10 Schwartz values. The scores range from 0 to 100, with higher scores indicating stronger preferences for the corresponding values.
                 </p>
               </div>
             </div>
@@ -360,11 +353,7 @@
             <div class="box m-5">
               <div class="content has-text-centered">
                 <img src="assets/results/vlm_std.png" width="50%" alt="VLM standard deviation comparison">
-                <p> Comparison with other agent frameworks using the same underlying toolbox. <span
-                    style="color: var(--color-octo-red);"><b>Octo</b></span><span
-                    style="color: var(--color-tools-blue);"><b>Tools</b></span> achieves superior performance with an
-                  average accuracy of 58.5%, outperforming the next best baseline by 7.3%. Results are averaged over
-                  three trials.
+                <p> Average standard deviation for each VLM. Higher standard deviation indicates stronger preferences for certain values over others, while lower standard deviation reflects a more balanced attitude.
                 </p>
               </div>
             </div>
@@ -381,7 +370,7 @@
 
             <div class="box m-5">
               <div class="content has-text-centered">
-                <img src="assets/results/agent_score_platform.png" width="50%" alt="Agent score by platform">
+                <img src="assets/results/agent_score_platform.png" width="90%" alt="Agent score by platform">
                 <p> Each VLM’s percentage score of preference alignment changes across TikTok, YouTube, and
                   Instagram. Positive values indicate an increase in alignment, while negative values represent a
                   decrease.
@@ -394,10 +383,7 @@
         <h3 class="title is-4">Ablation Study: VLMs vs. Corresponding LLMs</h3>
         <div class="content has-text-justified">
           <p>
-            We further explore several factors that affect <span
-              style="color: var(--color-octo-red);"><b>Octo</b></span><span
-              style="color: var(--color-tools-blue);"><b>Tools</b></span>'s performance, using a validation set of 100
-            samples.
+            To further understand the factors influencing value preference outcomes on our Value-Spectrum dataset, this ablation study compares Vision-Language Models (VLMs) against their corresponding text-only Large Language Models (LLMs). We also examine the impact of different input modalities (e.g., multi-modal vs. text-only) and combined input settings, using a validation set of 100 samples for each value.
           </p>
 
           <!-- Changed ID to be unique -->
